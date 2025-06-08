@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-zinc-100">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Users Grid</title>
+</head>
+
+<body class="h-full text-gray-800">
+    <a href="/" class="absolute top-4 right-4 text-blue-600 hover:underline">Create Users → </a>
+
+    <div class="p-8 max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-indigo-700 mb-6">User List</h1>
+
+        <div class="grid grid-cols-3 gap-4 text-sm font-medium text-gray-700">
+            <!-- Header Row -->
+            <div class="bg-indigo-100 p-3 rounded-md text-center">Name</div>
+            <div class="bg-indigo-100 p-3 rounded-md text-center">User</div>
+            <div class="bg-indigo-100 p-3 rounded-md text-center">Edit | Delete</div>
+
+            <!-- Data Rows -->
+            <% find_s.forEach(i => { %>
+                <div class="bg-white p-3 rounded-md text-center shadow-sm">
+                    <%= i.name %>
+                </div>
+                <div class="bg-white p-3 rounded-md text-center shadow-sm">
+                    <%= i.username %>
+                </div>
+                <div class="bg-white p-3 rounded-md text-center shadow-sm">
+                    <a href="/update/<%= i._id %>">Edit |</a>
+                    <a href="/delete/<%= i._id %>">Delete</a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+</body>
+
+</html>
